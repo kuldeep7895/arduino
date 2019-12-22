@@ -1,0 +1,17 @@
+float frequency;
+void setup()
+{
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  if(Serial.available()>0){
+    frequency=Serial.parseFloat();
+    Serial.println(frequency );  }
+  digitalWrite(13, HIGH);
+  delay(1000/frequency); // Wait for 1000 millisecond(s)
+  digitalWrite(13, LOW);
+  delay(1000/frequency); // Wait for 1000 millisecond(s)
+}
